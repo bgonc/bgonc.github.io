@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # cache: 'npm'  <-- REMOVED (Caused error because you have no lock file)
+          # cache: 'npm'  <-- I REMOVED THIS (It causes errors when you have no lock file)
 
       - name: Install dependencies
-        run: npm install  # <-- CHANGED (npm install works without a lock file; npm ci does not)
+        run: npm install  # <-- I CHANGED THIS (npm install works fine without a lock file)
 
       - name: Build
         run: npm run build
