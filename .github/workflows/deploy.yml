@@ -20,17 +20,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # cache: 'npm'  <-- REMOVED (Caused error because you have no lock file)
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install  # <-- CHANGED (npm install works without a lock file; npm ci does not)
 
       - name: Build
         run: npm run build
         env:
-          # API Key is usually not needed at build time for this app,
-          # but if you used it in build scripts, it would go here.
-          # The runtime key must be added to the repo secrets if you change how it loads.
           API_KEY: ${{ secrets.API_KEY }} 
 
       - name: Upload artifact
