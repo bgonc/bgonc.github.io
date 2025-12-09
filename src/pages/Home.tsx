@@ -330,28 +330,48 @@ const Home: React.FC = () => {
                         Latest from Blog
                     </h2>
                     {blogPosts.length > 0 ? (
-                        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div className="max-w-4xl mx-auto space-y-8">
                             {blogPosts.map((post) => (
-                                <article key={post.slug} onClick={() => handlePostClick(post.slug)} className="group cursor-pointer bg-secondary rounded-2xl border border-slate-700 overflow-hidden hover:border-accent/50 transition-all duration-300 hover:shadow-xl">
-                                    {post.coverImage && (
-                                        <div className="h-48 overflow-hidden">
-                                            <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                                <article key={post.slug} onClick={() => handlePostClick(post.slug)} className="group cursor-pointer w-full bg-[#1e1e1e] rounded-lg overflow-hidden shadow-xl border border-gray-700 font-mono hover:border-accent transition-colors">
+                                    {/* Terminal Header */}
+                                    <div className="bg-[#2d2d2d] px-4 py-2 flex items-center gap-2 border-b border-gray-700">
+                                        <div className="flex gap-1.5">
+                                            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
                                         </div>
-                                    )}
+                                        <div className="ml-4 text-xs text-gray-400 flex-1 text-center">
+                                            ~/blog/{post.slug}.md
+                                        </div>
+                                    </div>
+
+                                    {/* Terminal Content */}
                                     <div className="p-6">
-                                        <div className="flex gap-4 text-xs text-text-muted mb-3">
-                                            <span>{post.date}</span>
-                                            <span>•</span>
-                                            <span>{post.readTime}</span>
+                                        <div className="flex gap-4 text-xs text-green-400 mb-3 font-bold">
+                                            <span>$ cat metadata.txt</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-text-main mb-2 group-hover:text-accent transition-colors">
-                                            {post.title}
+                                        <div className="text-gray-300 text-sm mb-4 border-l-2 border-gray-700 pl-3">
+                                            <div className="flex gap-2">
+                                                <span className="text-blue-400">Date:</span>
+                                                <span>{post.date}</span>
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <span className="text-blue-400">Time:</span>
+                                                <span>{post.readTime}</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="text-green-400 text-xs font-bold mb-2">$ cat content_preview.md</div>
+                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
+                                            {">"} {post.title}
                                         </h3>
-                                        <p className="text-text-muted leading-relaxed mb-4">
+                                        <p className="text-gray-400 leading-relaxed mb-4 text-sm">
                                             {post.excerpt}
+                                            <span className="animate-pulse inline-block ml-1 w-2 h-4 bg-gray-400 align-middle"></span>
                                         </p>
-                                        <div className="flex items-center text-accent text-sm font-medium">
-                                            Read Article <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+
+                                        <div className="flex items-center text-accent text-sm font-medium mt-4 border-t border-dashed border-gray-700 pt-4">
+                                            [ Read Article ] <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                                         </div>
                                     </div>
                                 </article>
@@ -402,4 +422,3 @@ const Home: React.FC = () => {
 }
 
 export default Home;
-```

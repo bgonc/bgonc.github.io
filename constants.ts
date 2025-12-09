@@ -1,4 +1,3 @@
-```typescript
 import { PortfolioData } from './types';
 
 // -------------------------------------------------------
