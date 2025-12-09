@@ -1,9 +1,10 @@
+/// <reference types="vite/client" />
 import matter from 'gray-matter';
 import { Buffer } from 'buffer';
 
 // Polyfill buffer for gray-matter
 if (typeof window !== 'undefined') {
-    window.Buffer = Buffer;
+    (window as any).Buffer = Buffer;
 }
 
 export interface PostMetadata {
