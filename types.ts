@@ -28,6 +28,16 @@ export interface SocialLink {
   iconClass: string;
 }
 
+export interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  imageUrl?: string;
+  url?: string; // Could be internal or external link
+}
+
 export interface PortfolioData {
   name: string;
   title: string;
@@ -39,6 +49,7 @@ export interface PortfolioData {
   skills: Skill[];
   experience: Experience[];
   projects: Project[];
+  blogPosts: BlogPost[];
 }
 
 export interface ChatMessage {
