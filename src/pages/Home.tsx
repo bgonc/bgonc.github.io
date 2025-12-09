@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useNavigate } from 'react-router-dom';
 import { usePortfolio } from '../../context/PortfolioContext';
 import { getAllPosts, PostMetadata } from '../utils/markdown';
+import WeatherWidget from '../components/WeatherWidget';
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -38,13 +38,7 @@ const Home: React.FC = () => {
             <nav className="fixed top-0 w-full z-40 bg-primary/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                     <div className="font-none font-bold text-accent tracking-tighter cursor-pointer whitespace-pre leading-none text-[8px] md:text-[10px]" onClick={() => scrollToSection('home')}>
-                        {`
- _                                  
-| |__  _ __ _   _ _ __   ___    _ 
-| '_ \\| '__| | | | '_ \\ / _ \\  (_)
-| |_) | |  | |_| | | | | (_) |  _ 
-|_.__/|_|   \\__,_|_| |_|\\___/  (_)
-`}
+                        <WeatherWidget />
                     </div>
 
                     {/* Desktop Menu */}
@@ -189,39 +183,20 @@ const Home: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Skills Chart */}
-                        <div className="bg-primary p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl">
-                            <h3 className="text-xl font-semibold text-text-main mb-6">{labels.techProf}</h3>
-                            <div className="h-[300px] w-full">
-                                <ResponsiveContainer width="100%" height="100%">
-                                    <BarChart
-                                        layout="vertical"
-                                        data={skills}
-                                        margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
-                                    >
-                                        <XAxis type="number" domain={[0, 100]} hide />
-                                        <YAxis
-                                            dataKey="name"
-                                            type="category"
-                                            tick={{ fill: theme === 'dark' ? '#94a3b8' : '#475569', fontSize: 12 }}
-                                            width={100}
-                                            interval={0}
-                                        />
-                                        <Tooltip
-                                            cursor={{ fill: 'transparent' }}
-                                            contentStyle={{
-                                                backgroundColor: theme === 'dark' ? '#1e293b' : '#ffffff',
-                                                borderColor: theme === 'dark' ? '#334155' : '#e2e8f0',
-                                                color: theme === 'dark' ? '#f1f5f9' : '#0f172a'
-                                            }}
-                                        />
-                                        <Bar dataKey="level" barSize={20} radius={[0, 4, 4, 0]}>
-                                            {skills.map((entry, index) => (
-                                                <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#38bdf8' : '#818cf8'} />
-                                            ))}
-                                        </Bar>
-                                    </BarChart>
-                                </ResponsiveContainer>
+                        {/* Skills/Linux Aesthetic Image */}
+                        <div className="bg-primary p-1 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden group">
+                            <div className="relative overflow-hidden rounded-xl">
+                                <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
+                                <img
+                                    src="/images/linux_aesthetic.png"
+                                    alt="Linux Aesthetic"
+                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 hover:opacity-100"
+                                />
+                                <div className="absolute bottom-4 left-4 z-20">
+                                    <div className="bg-black/70 backdrop-blur-md px-3 py-1 rounded border border-accent/30 text-xs font-mono text-accent">
+                                        $ system_status: online
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -373,7 +348,10 @@ const Home: React.FC = () => {
                     )}
 
                     <div className="text-center mt-12">
-                        <button className="px-8 py-3 border border-slate-600 text-text-muted rounded-full hover:bg-secondary hover:text-white transition-colors">
+                        <button
+                            onClick={() => navigate('/blog')}
+                            className="px-8 py-3 border border-slate-600 text-text-muted rounded-full hover:bg-secondary hover:text-white transition-colors"
+                        >
                             View All Posts
                         </button>
                     </div>
