@@ -26,12 +26,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
-        env:
-          # API Key is usually not needed at build time for this app,
-          # but if you used it in build scripts, it would go here.
-          # The runtime key must be added to the repo secrets if you change how it loads.
-          API_KEY: ${{ secrets.API_KEY }} 
+        run: npm run build 
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
