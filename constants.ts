@@ -1,3 +1,4 @@
+```typescript
 import { PortfolioData } from './types';
 
 // -------------------------------------------------------
@@ -5,8 +6,8 @@ import { PortfolioData } from './types';
 // -------------------------------------------------------
 
 export const PORTFOLIO_DATA_EN: PortfolioData = {
-  name: "Bruno Gonçalves",
-  title: "Linux Administrator & Open Source Enthusiast",
+  name: "bruno_",
+  title: "Linux Administrator / RHCSA Student",
   location: "Helsinki, Finland",
   email: "bruno.m.goncalves@pm.me",
   resumeUrl: "#",

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useNavigate } from 'react-router-dom';
-import AdminPanel from '../../components/AdminPanel';
 import { usePortfolio } from '../../context/PortfolioContext';
 import { getAllPosts, PostMetadata } from '../utils/markdown';
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isAdminOpen, setIsAdminOpen] = useState(false);
     const [blogPosts, setBlogPosts] = useState<PostMetadata[]>([]);
 
     const { data, language, setLanguage, theme, toggleTheme, labels } = usePortfolio();
@@ -39,8 +37,12 @@ const Home: React.FC = () => {
             {/* Navigation */}
             <nav className="fixed top-0 w-full z-40 bg-primary/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <div className="text-2xl font-bold text-accent tracking-tighter cursor-pointer" onClick={() => scrollToSection('home')}>
-                        {name.split(' ')[0]}
+                    <div className="font-mono font-bold text-accent tracking-tighter cursor-pointer whitespace-pre leading-none text-[10px]" onClick={() => scrollToSection('home')}>
+                        {`   _
+  (o)
+  /v\\
+ /( )\
+ ^^ ^^`}
                     </div>
 
                     {/* Desktop Menu */}
@@ -123,8 +125,8 @@ const Home: React.FC = () => {
             <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
                 <div className="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/20 via-primary to-primary"></div>
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <h1 className="text-5xl md:text-7xl font-bold text-text-main mb-6 tracking-tight">
-                        {language === 'pt' ? 'Olá, sou o ' : "Hello, I'm "} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">{name}</span>
+                    <h1 className="text-5xl md:text-7xl font-bold text-text-main mb-6 tracking-tight font-mono">
+                        {language === 'pt' ? 'olá, sou o ' : "hello, i'm "} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">{name}</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-10">
                         {title}
@@ -391,22 +393,13 @@ const Home: React.FC = () => {
 
                     <footer className="mt-24 pt-8 border-t border-slate-200 dark:border-slate-800 text-text-muted text-sm flex flex-col items-center gap-4">
                         <p>© {new Date().getFullYear()} {name}. {labels.footer}</p>
-                        {/* Admin Trigger */}
-                        <button
-                            onClick={() => setIsAdminOpen(true)}
-                            className="text-text-muted hover:text-text-main transition-colors text-xs flex items-center gap-1"
-                        >
-                            <i className="fa-solid fa-lock"></i> {labels.adminAccess}
-                        </button>
                     </footer>
                 </div>
             </section>
-
-            {/* Admin Panel */}
-            <AdminPanel isOpen={isAdminOpen} onClose={() => setIsAdminOpen(false)} />
 
         </div>
     );
 }
 
 export default Home;
+```
