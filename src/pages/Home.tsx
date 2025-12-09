@@ -37,12 +37,14 @@ const Home: React.FC = () => {
             {/* Navigation */}
             <nav className="fixed top-0 w-full z-40 bg-primary/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <div className="font-mono font-bold text-accent tracking-tighter cursor-pointer whitespace-pre leading-none text-[10px]" onClick={() => scrollToSection('home')}>
-                        {`   _
-  (o)
-  /v\\
- /( )\
- ^^ ^^`}
+                    <div className="font-none font-bold text-accent tracking-tighter cursor-pointer whitespace-pre leading-none text-[8px] md:text-[10px]" onClick={() => scrollToSection('home')}>
+                        {`
+ _                                  
+| |__  _ __ _   _ _ __   ___    _ 
+| '_ \\| '__| | | | '_ \\ / _ \\  (_)
+| |_) | |  | |_| | | | | (_) |  _ 
+|_.__/|_|   \\__,_|_| |_|\\___/  (_)
+`}
                     </div>
 
                     {/* Desktop Menu */}
@@ -330,48 +332,35 @@ const Home: React.FC = () => {
                         Latest from Blog
                     </h2>
                     {blogPosts.length > 0 ? (
-                        <div className="max-w-4xl mx-auto space-y-8">
+                        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                             {blogPosts.map((post) => (
-                                <article key={post.slug} onClick={() => handlePostClick(post.slug)} className="group cursor-pointer w-full bg-[#1e1e1e] rounded-lg overflow-hidden shadow-xl border border-gray-700 font-mono hover:border-accent transition-colors">
-                                    {/* Terminal Header */}
-                                    <div className="bg-[#2d2d2d] px-4 py-2 flex items-center gap-2 border-b border-gray-700">
-                                        <div className="flex gap-1.5">
-                                            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                                            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                                            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                                        </div>
-                                        <div className="ml-4 text-xs text-gray-400 flex-1 text-center">
-                                            ~/blog/{post.slug}.md
-                                        </div>
+                                <article
+                                    key={post.slug}
+                                    onClick={() => handlePostClick(post.slug)}
+                                    className="group cursor-pointer relative bg-secondary/30 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-800 hover:border-accent/40 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/5"
+                                >
+                                    {/* Tech Pattern overlay */}
+                                    <div className="absolute top-0 right-0 p-4 opacity-10 font-mono text-xs text-accent select-none pointer-events-none">
+                                        {"<md>"}
                                     </div>
 
-                                    {/* Terminal Content */}
-                                    <div className="p-6">
-                                        <div className="flex gap-4 text-xs text-green-400 mb-3 font-bold">
-                                            <span>$ cat metadata.txt</span>
-                                        </div>
-                                        <div className="text-gray-300 text-sm mb-4 border-l-2 border-gray-700 pl-3">
-                                            <div className="flex gap-2">
-                                                <span className="text-blue-400">Date:</span>
-                                                <span>{post.date}</span>
-                                            </div>
-                                            <div className="flex gap-2">
-                                                <span className="text-blue-400">Time:</span>
-                                                <span>{post.readTime}</span>
-                                            </div>
+                                    <div className="p-6 h-full flex flex-col">
+                                        <div className="flex gap-3 text-xs font-mono text-accent/80 mb-4">
+                                            <span className="bg-accent/10 px-2 py-1 rounded">{post.date}</span>
+                                            <span className="bg-primary px-2 py-1 rounded text-text-muted">{post.readTime}</span>
                                         </div>
 
-                                        <div className="text-green-400 text-xs font-bold mb-2">$ cat content_preview.md</div>
-                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
-                                            {">"} {post.title}
+                                        <h3 className="text-xl font-bold text-text-main mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                                            {post.title}
                                         </h3>
-                                        <p className="text-gray-400 leading-relaxed mb-4 text-sm">
+
+                                        <p className="text-text-muted text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
                                             {post.excerpt}
-                                            <span className="animate-pulse inline-block ml-1 w-2 h-4 bg-gray-400 align-middle"></span>
                                         </p>
 
-                                        <div className="flex items-center text-accent text-sm font-medium mt-4 border-t border-dashed border-gray-700 pt-4">
-                                            [ Read Article ] <i className="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                        <div className="flex items-center text-accent text-sm font-medium pt-4 border-t border-slate-800/50">
+                                            <span className="group-hover:mr-2 transition-all duration-300">Read Post</span>
+                                            <i className="fa-solid fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-2 group-hover:translate-x-0"></i>
                                         </div>
                                     </div>
                                 </article>
@@ -399,8 +388,8 @@ const Home: React.FC = () => {
                     </h2>
                     <p className="text-xl text-text-muted max-w-2xl mx-auto mb-10">
                         {language === 'en'
-                            ? "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
-                            : "Estou à procura de novas oportunidades. Se tiver alguma questão ou apenas quiser dizer olá, tentarei responder o mais breve possível!"
+                            ? "Have a question or just want to say hi? I'll try my best to get back to you!"
+                            : "Tem alguma questão ou apenas quer dizer olá? Tentarei responder o mais breve possível!"
                         }
                     </p>
                     <a

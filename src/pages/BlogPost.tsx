@@ -36,12 +36,14 @@ const BlogPost: React.FC = () => {
                     >
                         <i className="fa-solid fa-arrow-left"></i> Back to Home
                     </button>
-                    <div className="ml-auto font-mono font-bold text-accent whitespace-pre leading-none text-[10px]">
-                        {`   _
-  (o)
-  /v\\
- /( )\
- ^^ ^^`}
+                    <div className="ml-auto font-none font-bold text-accent whitespace-pre leading-none text-[8px] md:text-[10px]">
+                        {`
+ _                                  
+| |__  _ __ _   _ _ __   ___    _ 
+| '_ \\| '__| | | | '_ \\ / _ \\  (_)
+| |_) | |  | |_| | | | | (_) |  _ 
+|_.__/|_|   \\__,_|_| |_|\\___/  (_)
+`}
                     </div>
                 </div>
             </nav>
