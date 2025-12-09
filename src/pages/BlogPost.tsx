@@ -47,27 +47,46 @@ const BlogPost: React.FC = () => {
             </nav>
 
             {/* Content */}
-            <article className="container mx-auto px-6 pt-32 pb-24 max-w-3xl">
-                <header className="mb-12 text-center">
-                    <div className="flex justify-center gap-4 text-sm text-text-muted mb-4">
-                        <span>{metadata.date}</span>
-                        <span>•</span>
-                        <span>{metadata.readTime}</span>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-500 mb-6">
-                        {metadata.title}
-                    </h1>
-                    {metadata.coverImage && (
-                        <div className="mt-8 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-                            <img src={metadata.coverImage} alt={metadata.title} className="w-full h-auto" />
-                        </div>
-                    )}
-                </header>
+            <article className="container mx-auto px-6 pt-32 pb-24 max-w-3xl font-mono">
+                {/* Terminal Prompt Header */}
+                <div className="mb-8 pb-4 border-b border-gray-800 text-sm md:text-base">
+                    <span className="text-green-500">bruno@portfolio</span>
+                    <span className="text-gray-400">:</span>
+                    <span className="text-blue-500">~/posts</span>
+                    <span className="text-gray-400">$</span>
+                    <span className="text-text-main ml-2">cat {metadata.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}.md</span>
+                </div>
 
-                <div className="prose prose-invert prose-lg max-w-none prose-headings:text-text-main prose-p:text-text-muted prose-strong:text-text-main prose-a:text-accent prose-code:text-accent prose-pre:bg-secondary prose-pre:border prose-pre:border-slate-700">
-                    <Markdown rehypePlugins={[rehypeHighlight]}>
-                        {content}
-                    </Markdown>
+                <div className="bg-[#1e1e1e]/50 p-1 md:p-0 rounded-lg">
+                    <header className="mb-8 border-b border-gray-800 pb-8">
+                        <h1 className="text-3xl md:text-4xl font-bold text-text-main mb-4">
+                            # {metadata.title}
+                        </h1>
+                        <div className="flex flex-wrap gap-4 text-sm text-gray-500 font-mono">
+                            <span className="flex items-center gap-2">
+                                <i className="far fa-calendar text-green-500"></i> {metadata.date}
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <i className="far fa-clock text-yellow-500"></i> {metadata.readTime}
+                            </span>
+                        </div>
+                        {metadata.coverImage && (
+                            <div className="mt-8 rounded-lg overflow-hidden border border-gray-800 opacity-80 hover:opacity-100 transition-opacity">
+                                <img src={metadata.coverImage} alt={metadata.title} className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500" />
+                            </div>
+                        )}
+                    </header>
+
+                    <div className="prose prose-invert prose-lg max-w-none font-mono prose-headings:text-green-500 prose-p:text-gray-300 prose-strong:text-white prose-a:text-blue-400 prose-code:text-yellow-500 prose-code:bg-gray-800/50 prose-code:px-1 prose-code:rounded prose-pre:bg-[#1a1b26] prose-pre:border prose-pre:border-gray-800">
+                        <Markdown rehypePlugins={[rehypeHighlight]}>
+                            {content}
+                        </Markdown>
+                    </div>
+
+                    {/* Blinking Cursor at the end of content */}
+                    <div className="mt-8 text-green-500 animate-pulse font-bold text-xl">
+                        _
+                    </div>
                 </div>
             </article>
 
