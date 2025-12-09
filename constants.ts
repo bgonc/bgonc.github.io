@@ -61,7 +61,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       title: "Home Lab Setup",
       description: "Configuring a Proxmox home lab for virtualization, experimenting with different Linux distros and container orchestration.",
       technologies: ["Proxmox", "Linux", "Docker", "Networking"],
-      imageUrl: "https://picsum.photos/600/400?random=20",
+      imageUrl: "/images/projects/home-lab.png",
       githubUrl: "https://github.com/bgonc",
     },
     {
@@ -69,7 +69,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       title: "Dotfiles & Automation",
       description: "My personal collection of dotfiles and automation scripts to set up a productive Linux development environment.",
       technologies: ["Bash", "Lua", "Neovim", "Tmux"],
-      imageUrl: "https://picsum.photos/600/400?random=21",
+      imageUrl: "/images/projects/dotfiles.png",
       githubUrl: "https://github.com/bgonc",
     },
     {
@@ -77,7 +77,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       title: "RHCSA Study Notes",
       description: "A comprehensive repository of notes and practical exercises for the Red Hat Certified System Administrator exam.",
       technologies: ["RHEL", "Systemd", "LVM", "SELinux"],
-      imageUrl: "https://picsum.photos/600/400?random=22",
+      imageUrl: "/images/projects/rhcsa.png",
       githubUrl: "https://github.com/bgonc",
     }
   ],
