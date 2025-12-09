@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bruno's Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-      
-      :root {
-        /* Light Mode Variables */
-        --color-primary: #f8fafc;   /* slate-50 */
-        --color-secondary: #ffffff; /* white */
-        --text-main: #0f172a;       /* slate-900 */
-        --text-muted: #475569;      /* slate-600 */
-      }
-      
-      .dark {
-        /* Dark Mode Variables */
-        --color-primary: #0f172a;   /* slate-900 */
-        --color-secondary: #1e293b; /* slate-800 */
-        --text-main: #f8fafc;       /* slate-50 */
-        --text-muted: #94a3b8;      /* slate-400 */
-      }
 
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--color-primary);
-        color: var(--text-main);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bruno's Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--color-primary);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--text-muted);
-        border-radius: 4px;
-        opacity: 0.5;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
-      }
-    </style>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: 'var(--color-primary)',
-              secondary: 'var(--color-secondary)',
-              accent: '#38bdf8', // sky-400
-              'accent-hover': '#0ea5e9', // sky-500
-              'text-main': 'var(--text-main)',
-              'text-muted': 'var(--text-muted)',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
+    :root {
+      /* Light Mode Variables */
+      --color-primary: #f8fafc;
+      /* slate-50 */
+      --color-secondary: #ffffff;
+      /* white */
+      --text-main: #0f172a;
+      /* slate-900 */
+      --text-muted: #475569;
+      /* slate-600 */
+    }
+
+    .dark {
+      /* Dark Mode Variables */
+      --color-primary: #0f172a;
+      /* slate-900 */
+      --color-secondary: #1e293b;
+      /* slate-800 */
+      --text-main: #f8fafc;
+      /* slate-50 */
+      --text-muted: #94a3b8;
+      /* slate-400 */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-primary);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--color-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: 4px;
+      opacity: 0.5;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: 'var(--color-primary)',
+            secondary: 'var(--color-secondary)',
+            accent: '#38bdf8', // sky-400
+            'accent-hover': '#0ea5e9', // sky-500
+            'text-main': 'var(--text-main)',
+            'text-muted': 'var(--text-muted)',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
   <script type="importmap">
 {
   "imports": {
@@ -84,10 +94,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
