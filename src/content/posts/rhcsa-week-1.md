@@ -2,7 +2,7 @@
 title: "RHCSA Prep week 1"
 date: "2024-12-01"
 excerpt: "First week of studying for the Red Hat exam. Covering file management and basic commands."
-coverImage: "https://picsum.photos/800/400?random=31"
+coverImage: "/images/blog/rhcsa-server.png"
 readTime: "3 min read"
 ---
 

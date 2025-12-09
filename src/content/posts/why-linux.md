@@ -2,7 +2,7 @@
 title: "Why I switched to Linux"
 date: "2024-12-08"
 excerpt: "My journey from Windows/Mac to a fully customized Linux environment, and why I'll never go back."
-coverImage: "https://picsum.photos/800/400?random=30"
+coverImage: "/images/blog/linux-setup.png"
 readTime: "5 min read"
 ---
 
