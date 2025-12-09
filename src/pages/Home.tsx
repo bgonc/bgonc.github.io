@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [blogPosts, setBlogPosts] = useState<PostMetadata[]>([]);
 
-    const { data, language, setLanguage, theme, toggleTheme, labels } = usePortfolio();
+    const { data, theme, toggleTheme, labels } = usePortfolio();
     const { name, title, bio, experience, projects, skills, socials, email } = data;
 
     useEffect(() => {
@@ -58,13 +58,7 @@ const Home: React.FC = () => {
 
                         {/* Toggles */}
                         <div className="flex items-center gap-4 pl-4 border-l border-slate-300 dark:border-slate-700">
-                            <button
-                                onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}
-                                className="text-xl hover:scale-110 transition-transform grayscale opacity-70 hover:grayscale-0 hover:opacity-100"
-                                title="Switch Language"
-                            >
-                                {language === 'en' ? '🇬🇧' : '🇵🇹'}
-                            </button>
+
                             <button
                                 onClick={toggleTheme}
                                 className="text-lg text-text-muted hover:text-accent transition-colors"
@@ -100,12 +94,7 @@ const Home: React.FC = () => {
                             );
                         })}
                         <div className="flex justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
-                            <button
-                                onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}
-                                className="text-2xl grayscale opacity-70 hover:grayscale-0 hover:opacity-100"
-                            >
-                                {language === 'en' ? '🇬🇧' : '🇵🇹'}
-                            </button>
+
                             <button
                                 onClick={toggleTheme}
                                 className="text-xl text-text-main"
@@ -122,7 +111,7 @@ const Home: React.FC = () => {
                 <div className="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/20 via-primary to-primary"></div>
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <h1 className="text-5xl md:text-7xl font-bold text-text-main mb-6 tracking-tight font-mono">
-                        {language === 'pt' ? 'olá, sou o ' : "hello, i'm "} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">{name}</span>
+                        hello, i'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">{name}</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-10">
                         {title}
@@ -365,10 +354,7 @@ const Home: React.FC = () => {
                         {labels.letsWork}
                     </h2>
                     <p className="text-xl text-text-muted max-w-2xl mx-auto mb-10">
-                        {language === 'en'
-                            ? "Have a question or just want to say hi? I'll try my best to get back to you!"
-                            : "Tem alguma questão ou apenas quer dizer olá? Tentarei responder o mais breve possível!"
-                        }
+                        "Have a question or just want to say hi? I'll try my best to get back to you!"
                     </p>
                     <a
                         href={`mailto:${email}`}
