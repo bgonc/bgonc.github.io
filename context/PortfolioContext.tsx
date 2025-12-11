@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { PortfolioData } from '../types';
 import { PORTFOLIO_DATA_EN } from '../constants';
 
-type Language = 'en' | 'pt';
+
 type Theme = 'light' | 'dark';
 
 interface Labels {
