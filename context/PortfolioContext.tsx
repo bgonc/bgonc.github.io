@@ -60,7 +60,7 @@ interface PortfolioContextType {
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 
-export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const PortfolioProvider = ({ children }: { children: React.ReactNode }) => {
   // UI State
   const [theme, setThemeState] = useState<Theme>('dark');
 
