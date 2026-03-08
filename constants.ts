@@ -8,7 +8,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   name: "bruno_",
   title: "IT Student | Linux & Open Source Enthusiast",
   location: "Helsinki, Finland",
-  email: "bruno.m.goncalves@pm.me",
+  email: ["contact", "goncalves.fi"].join("@"),
   resumeUrl: "#",
   bio: "Passionate about Linux systems and open source technology. Currently preparing for RHCSA certification and diving deep into system administration, automation, and infrastructure management. I love exploring new distributions, optimizing workflows with Bash scripts, and contributing to the open source community.",
   socials: [
