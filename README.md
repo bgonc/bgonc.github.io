@@ -1,9 +1,9 @@
-# bgonc.github.io — Portfolio Website
+# bgonc.codeberg.page — Portfolio Website
 
 Personal site built with React, TypeScript, and Vite. Includes a home page, a blog section, and a project showcase.  
 Deployed via GitHub Pages.
 
-Live at 👉 **[bgonc.github.io](https://bgonc.github.io)**
+Live at 👉 **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
 ---
 
@@ -43,4 +43,4 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ## Author
 
-[Bruno Goncalves](https://bgonc.github.io) · [github.com/bgonc](https://github.com/bgonc)
+[Bruno Goncalves](https://bgonc.codeberg.page) · [github.com/bgonc](https://codeberg.org/bgonc)
