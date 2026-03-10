@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+run_deploy=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ "$remote_ref" == "refs/heads/main" && "$local_sha" != "0000000000000000000000000000000000000000" ]]; then
+    run_deploy=1
+  fi
+done
+
+if [[ "$run_deploy" -eq 1 ]]; then
+  repo_root="$(git rev-parse --show-toplevel)"
+  "$repo_root/scripts/deploy-pages.sh"
+fi

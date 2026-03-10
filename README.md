@@ -35,6 +35,31 @@ Live at 👉 **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
 ---
 
+## Auto Deploy To `pages`
+
+This repo includes a local automation flow that keeps `../pages` synced.
+
+- Script: `scripts/deploy-pages.sh`
+- Hook: `.githooks/post-push`
+
+Enable hooks once in this clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Manual deploy command:
+
+```bash
+npm run deploy:pages
+```
+
+Behavior:
+- Every push to `main` in this local clone runs the deploy script automatically.
+- The script builds the site, syncs `dist/` into `../pages`, commits there if needed, and pushes `pages`.
+
+---
+
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.
