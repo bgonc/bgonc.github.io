@@ -26,6 +26,7 @@ export interface SocialLink {
   platform: string;
   url: string;
   iconClass: string;
+  iconSvgPath?: string; // Optional SVG path for custom icons (rendered with viewBox 0 0 24 24)
 }
 
 export interface BlogPost {

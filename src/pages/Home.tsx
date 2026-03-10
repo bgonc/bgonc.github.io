@@ -139,9 +139,23 @@ const Home: React.FC = () => {
                                 href={social.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                title={social.platform}
                                 className="text-text-muted hover:text-accent text-2xl transition-colors"
                             >
-                                <i className={social.iconClass}></i>
+                                {social.iconSvgPath ? (
+                                    <svg
+                                        role="img"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        className="w-6 h-6 inline-block"
+                                        aria-label={social.platform}
+                                    >
+                                        <path d={social.iconSvgPath} />
+                                    </svg>
+                                ) : (
+                                    <i className={social.iconClass}></i>
+                                )}
                             </a>
                         ))}
                     </div>
