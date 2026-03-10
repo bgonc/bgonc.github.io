@@ -1,4 +1,4 @@
-const e=`---
+---
 title: "Building a native Wayland dashboard after cloud sync failed me"
 date: "2026-03-10"
 excerpt: "How a simple Filen sync check turned into a practical PyQt6 dashboard I use every day."
@@ -48,4 +48,3 @@ It is lightweight, always visible, and focused on my own machine instead of tryi
 
 - [System Dashboard on Codeberg](https://codeberg.org/bgonc/system-dashboard)
 - [System Dashboard mirror on GitHub](https://github.com/bgonc/system-dashboard)
-`;export{e as default};

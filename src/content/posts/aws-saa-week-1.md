@@ -1,4 +1,4 @@
-const e=`---
+---
 title: "AWS SAA prep week 1"
 date: "2024-12-01"
 excerpt: "First week of AWS Solutions Architect Associate prep, focused on IAM, EC2, and core networking."
@@ -29,4 +29,3 @@ I compared common S3 storage classes and practiced lifecycle rules. I wanted to 
 The biggest lesson so far is that AWS design questions are mostly tradeoff questions. Cost, availability, and operational complexity are always connected.
 
 Next week I will focus on load balancing, autoscaling, and high availability patterns.
-`;export{e as default};
