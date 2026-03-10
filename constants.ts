@@ -27,58 +27,59 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   experience: [
     {
       id: 1,
-      role: "Support Specialist (Provet Cloud)",
+      role: "Support Specialist | B2B SaaS",
       company: "Nordhealth",
-      period: "Present",
-      description: "Providing technical support for veterinary practice management software, involving troubleshooting and system diagnostics."
+      period: "Sep 2025 - Present",
+      description: "Support veterinary clinics using Provet Cloud via chat, email, and remote sessions. Troubleshoot configuration and workflow issues, and escalate product bugs with clear technical context."
     },
-    // ... previous experience kept for history, or shortened if user wants less clutter. Keeping as is for now but focusing on Linux.
     {
       id: 2,
-      role: "Team Leader, Senior Customer Service Specialist",
+      role: "Senior Customer Support Specialist",
       company: "Swappie Oy",
-      period: "Mar 2021 – Aug 2025",
-      description: "Led service teams and handled complex technical issues in an e-commerce environment."
+      period: "Mar 2021 - Aug 2025",
+      description: "Handled complex platform and customer incidents in a high-volume ecommerce environment. Improved onboarding and support workflows, and led a small multilingual support team."
     },
     {
       id: 3,
       role: "Service Supervisor & Team Leader",
-      company: "Sol Palvelut Oy",
-      period: "Oct 2011 – Feb 2021",
-      description: "Supervised service operations and team management."
+      company: "SOL Palvelut Oy",
+      period: "Oct 2011 - Feb 2021",
+      description: "Managed daily multi-site operations including staffing, scheduling, and service quality. Introduced process improvements to keep teams aligned and delivery consistent."
     },
     {
       id: 4,
       role: "IT Support & Network Specialist",
-      company: "Mobbit Systems",
+      company: "Mobbit Systems / DoisBR",
       period: "Jan 2008 - Sep 2011",
-      description: "Delivered Tier 1/2 technical support, network supervision, and hardware troubleshooting."
+      description: "Delivered Tier 1 and Tier 2 IT support for business clients, including network troubleshooting and infrastructure setup. Worked on DNS, DHCP, VPN, hardware, and connectivity issues."
     }
   ],
   projects: [
     {
       id: 1,
-      title: "Home Lab Setup",
-      description: "Configuring a Proxmox home lab for virtualization, experimenting with different Linux distros and container orchestration.",
-      technologies: ["Proxmox", "Linux", "Docker", "Networking"],
+      title: "System Dashboard",
+      description: "A PyQt6 dashboard built for Wayland and Hyprland to monitor system health, service status, updates, and cloud sync in one always-visible window.",
+      technologies: ["Python", "PyQt6", "Systemd", "psutil"],
       imageUrl: "/images/projects/home-lab.png",
-      codebergUrl: "https://codeberg.org/bgonc",
+      codebergUrl: "https://codeberg.org/bgonc/system-dashboard",
     },
     {
       id: 2,
-      title: "Dotfiles & Automation",
-      description: "My personal collection of dotfiles and automation scripts to set up a productive Linux development environment.",
-      technologies: ["Bash", "Lua", "Neovim", "Tmux"],
+      title: "Provet Report Studio",
+      description: "A browser tool for transforming Provet exports into clean reports with filters, merges, and fast analysis without server-side processing.",
+      technologies: ["JavaScript", "HTML", "CSS", "SheetJS"],
       imageUrl: "/images/projects/dotfiles.png",
-      codebergUrl: "https://codeberg.org/bgonc",
+      codebergUrl: "https://codeberg.org/bgonc/provet-report-studio",
+      liveUrl: "https://bgonc.codeberg.page/provet-report-studio",
     },
     {
       id: 3,
-      title: "AWS SAA Study Notes",
-      description: "A growing repository of notes and practical labs for AWS Solutions Architect Associate preparation.",
-      technologies: ["AWS", "EC2", "S3", "IAM"],
-      imageUrl: "/images/projects/home-lab.png",
-      codebergUrl: "https://codeberg.org/bgonc",
+      title: "Portfolio Website",
+      description: "My personal website with project highlights and blog posts, built with React and TypeScript and published as a static site.",
+      technologies: ["React", "TypeScript", "Vite", "Tailwind"],
+      imageUrl: "/images/projects/rhcsa.png",
+      codebergUrl: "https://codeberg.org/bgonc/portfolio",
+      liveUrl: "https://bgonc.codeberg.page",
     }
   ],
   blogPosts: [

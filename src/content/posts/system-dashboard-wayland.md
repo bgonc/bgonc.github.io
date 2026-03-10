@@ -1,54 +1,50 @@
 ---
 title: "Building a native Wayland dashboard after cloud sync failed me"
 date: "2026-03-10"
-excerpt: "How a simple Filen sync check turned into a full PyQt6 desktop dashboard for Hyprland."
-readTime: "8 min read"
+excerpt: "How a simple Filen sync check turned into a practical PyQt6 dashboard I use every day."
+coverImage: "/images/blog/system-dashboard.png"
+readTime: "6 min read"
 ---
 
 # Building a native Wayland dashboard after cloud sync failed me
 
-If you use a custom Linux desktop long enough, you hit a point where off the shelf tools are close, but not quite right. That is exactly how this project started.
+I did not start this project because I wanted to build a full monitoring app.
+I started it because I wanted to trust that my cloud sync was actually working.
 
-I did not wake up planning to build a full desktop dashboard. I just wanted to trust that my files were syncing in the background.
+## The problem
 
-## Where it started
+I first tried Proton Drive, but Linux support was not reliable enough for my workflow.
+I moved back to Filen, which works better on Linux, but I still had random sync stalls on my Arch and Hyprland setup.
 
-I first tried Proton Drive because I already use their ecosystem. The problem was Linux support. For my workflow, no reliable native sync client means no reliable cloud backup.
+The bad part was that failures were silent.
+I only noticed when I needed a file on another device.
 
-So I moved back to Filen. Filen itself is solid, and Linux support is much better, but I had a different issue on Arch with Hyprland. Sync would occasionally stall with no obvious warning. I would only notice when I needed a file on another device.
+## The first solution
 
-I ended up checking logs manually too often. That became annoying fast.
+I wrote a small Python script to check Filen process status and logs.
+That solved the main issue, but I still had to open a terminal every time I wanted to verify sync health.
 
-## The first fix
+## Why it became a desktop app
 
-The first version was just a Python script. It checked the Filen process and inspected logs so I could quickly see if sync was healthy.
+Once I had the logic, I wanted it visible all the time.
+So I wrapped it in a PyQt6 interface and kept extending it with the metrics I actually care about.
 
-That solved the immediate issue, but I still had to run it in a terminal. It worked, but it was not something I could trust at a glance during normal work.
-
-## Turning it into a real desktop tool
-
-Once I had the script, the next step was obvious: put the important status in a small always visible desktop app.
-
-I used PyQt6 because it runs smoothly in my Wayland setup and gives me full control over the UI. From there, the app grew from one check into a full dashboard.
-
-## What the dashboard tracks now
+Now the dashboard tracks:
 
 - Filen sync health and daemon status
 - CPU, RAM, network I/O, battery, and disk usage
 - Systemd services in both system and user scope
-- Kernel alerts from journal logs
-- Pending package updates on Arch
+- Kernel and journal alerts
+- Pending Arch package updates
 
-The biggest improvement for me is service visibility. I can spot failing background services early instead of finding out later when something already broke.
+## What changed for me
 
-## Why I still use it every day
+The biggest improvement is service visibility.
+I can spot failing background services early, before they become a bigger problem.
 
-This dashboard is not trying to replace every monitoring tool. It is a practical layer that matches my own workstation and workflow.
-
-It sits on my desktop, stays lightweight, and gives me the exact status I care about without noise.
-
-The project started from one sync frustration, but it ended up becoming my daily control panel for the whole machine.
+It is lightweight, always visible, and focused on my own machine instead of trying to be a generic monitoring suite.
 
 ## Source
 
-[system-dashboard on Codeberg](https://codeberg.org/bgonc/system-dashboard)
+- [System Dashboard on Codeberg](https://codeberg.org/bgonc/system-dashboard)
+- [System Dashboard mirror on GitHub](https://github.com/bgonc/system-dashboard)
