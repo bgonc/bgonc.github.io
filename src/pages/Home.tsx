@@ -264,12 +264,12 @@ const Home: React.FC = () => {
                                     </div>
                                     <div className="flex gap-4">
                                         <a
-                                            href={project.githubUrl}
+                                            href={project.codebergUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 text-sm font-semibold text-text-main hover:text-accent transition-colors"
                                         >
-                                            <i className="fab fa-github"></i> {labels.code}
+                                            <i className="fas fa-code-branch"></i> {labels.code}
                                         </a>
                                         {project.liveUrl && (
                                             <a

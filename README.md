@@ -1,7 +1,7 @@
 # bgonc.codeberg.page — Portfolio Website
 
 Personal site built with React, TypeScript, and Vite. Includes a home page, a blog section, and a project showcase.  
-Deployed via GitHub Pages.
+Deployed via Codeberg Pages.
 
 Live at 👉 **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
@@ -11,8 +11,8 @@ Live at 👉 **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
 - **Framework:** React + TypeScript
 - **Build tool:** Vite
-- **Routing:** React Router (HashRouter for GitHub Pages compatibility)
-- **Deployment:** GitHub Pages
+- **Routing:** React Router (HashRouter for Codeberg Pages compatibility)
+- **Deployment:** Codeberg Pages
 
 ---
 
@@ -43,4 +43,4 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ## Author
 
-[Bruno Goncalves](https://bgonc.codeberg.page) · [github.com/bgonc](https://codeberg.org/bgonc)
+[Bruno Goncalves](https://bgonc.codeberg.page) · [codeberg.org/bgonc](https://codeberg.org/bgonc)

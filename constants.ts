@@ -12,7 +12,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   resumeUrl: "#",
   bio: "Passionate about Linux systems and open source technology. Currently preparing for RHCSA certification and diving deep into system administration, automation, and infrastructure management. I love exploring new distributions, optimizing workflows with Bash scripts, and contributing to the open source community.",
   socials: [
-    { platform: "GitHub", url: "https://codeberg.org/bgonc", iconClass: "fab fa-github" },
+    { platform: "Codeberg", url: "https://codeberg.org/bgonc", iconClass: "fas fa-code-branch" },
     { platform: "LinkedIn", url: "https://linkedin.com/in/brunogoncalvesss", iconClass: "fab fa-linkedin" },
     { platform: "Website", url: "https://bgonc.codeberg.page", iconClass: "fas fa-globe" },
   ],
@@ -62,7 +62,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       description: "Configuring a Proxmox home lab for virtualization, experimenting with different Linux distros and container orchestration.",
       technologies: ["Proxmox", "Linux", "Docker", "Networking"],
       imageUrl: "/images/projects/home-lab.png",
-      githubUrl: "https://codeberg.org/bgonc",
+      codebergUrl: "https://codeberg.org/bgonc",
     },
     {
       id: 2,
@@ -70,7 +70,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       description: "My personal collection of dotfiles and automation scripts to set up a productive Linux development environment.",
       technologies: ["Bash", "Lua", "Neovim", "Tmux"],
       imageUrl: "/images/projects/dotfiles.png",
-      githubUrl: "https://codeberg.org/bgonc",
+      codebergUrl: "https://codeberg.org/bgonc",
     },
     {
       id: 3,
@@ -78,7 +78,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
       description: "A comprehensive repository of notes and practical exercises for the Red Hat Certified System Administrator exam.",
       technologies: ["RHEL", "Systemd", "LVM", "SELinux"],
       imageUrl: "/images/projects/rhcsa.png",
-      githubUrl: "https://codeberg.org/bgonc",
+      codebergUrl: "https://codeberg.org/bgonc",
     }
   ],
   blogPosts: [
