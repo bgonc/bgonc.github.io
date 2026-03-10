@@ -10,7 +10,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   location: "Helsinki, Finland",
   email: ["contact", "goncalves.fi"].join("@"),
   resumeUrl: "#",
-  bio: "Passionate about Linux systems and open source technology. Currently preparing for RHCSA certification and diving deep into system administration, automation, and infrastructure management. I love exploring new distributions, optimizing workflows with Bash scripts, and contributing to the open source community.",
+  bio: "Passionate about Linux systems and open source technology. Currently preparing for AWS Solutions Architect Associate (AWS SAA) and diving deep into cloud architecture, automation, and infrastructure management. I love exploring new distributions, optimizing workflows with Bash scripts, and contributing to the open source community.",
   socials: [
     { platform: "Codeberg", url: "https://codeberg.org/bgonc", iconClass: "", iconSvgPath: "M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648z" },
     { platform: "LinkedIn", url: "https://linkedin.com/in/brunogoncalvesss", iconClass: "fab fa-linkedin" },
@@ -19,7 +19,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   skills: [
     { name: "Linux Admin", level: 90, category: "Backend" },
     { name: "Bash Scripting", level: 85, category: "Backend" },
-    { name: "RHCSA Prep", level: 80, category: "Backend" },
+    { name: "AWS SAA Prep", level: 80, category: "Backend" },
     { name: "Networking", level: 75, category: "Backend" },
     { name: "Docker", level: 70, category: "Tools" },
     { name: "Git", level: 85, category: "Tools" },
@@ -74,10 +74,10 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     },
     {
       id: 3,
-      title: "RHCSA Study Notes",
-      description: "A comprehensive repository of notes and practical exercises for the Red Hat Certified System Administrator exam.",
-      technologies: ["RHEL", "Systemd", "LVM", "SELinux"],
-      imageUrl: "/images/projects/rhcsa.png",
+      title: "AWS SAA Study Notes",
+      description: "A growing repository of notes and practical labs for AWS Solutions Architect Associate preparation.",
+      technologies: ["AWS", "EC2", "S3", "IAM"],
+      imageUrl: "/images/projects/home-lab.png",
       codebergUrl: "https://codeberg.org/bgonc",
     }
   ],
@@ -92,8 +92,8 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     },
     {
       id: 2,
-      title: "Preparing for RHCSA: Week 1",
-      excerpt: "First week of studying for the Red Hat exam. Covering file management and basic commands.",
+      title: "Preparing for AWS SAA: Week 1",
+      excerpt: "First week of AWS SAA prep, covering IAM, EC2, and foundational architecture concepts.",
       date: "Dec 01, 2024",
       readTime: "3 min read",
       imageUrl: "https://picsum.photos/600/400?random=31"
