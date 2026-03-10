@@ -12,7 +12,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
   resumeUrl: "#",
   bio: "Passionate about Linux systems and open source technology. Currently preparing for RHCSA certification and diving deep into system administration, automation, and infrastructure management. I love exploring new distributions, optimizing workflows with Bash scripts, and contributing to the open source community.",
   socials: [
-    { platform: "Codeberg", url: "https://codeberg.org/bgonc", iconClass: "fas fa-code-branch" },
+    { platform: "Codeberg", url: "https://codeberg.org/bgonc", iconClass: "fab fa-git-alt" },
     { platform: "LinkedIn", url: "https://linkedin.com/in/brunogoncalvesss", iconClass: "fab fa-linkedin" },
     { platform: "Website", url: "https://bgonc.codeberg.page", iconClass: "fas fa-globe" },
   ],

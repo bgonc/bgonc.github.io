@@ -269,7 +269,7 @@ const Home: React.FC = () => {
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 text-sm font-semibold text-text-main hover:text-accent transition-colors"
                                         >
-                                            <i className="fas fa-code-branch"></i> {labels.code}
+                                            <i className="fab fa-git-alt"></i> {labels.code}
                                         </a>
                                         {project.liveUrl && (
                                             <a
