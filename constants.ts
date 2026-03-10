@@ -6,11 +6,11 @@ import { PortfolioData } from './types';
 
 export const PORTFOLIO_DATA_EN: PortfolioData = {
   name: "bruno_",
-  title: "IT Student | Linux & Open Source Enthusiast",
+  title: "IT Student | Technical Support Specialist",
   location: "Helsinki, Finland",
   email: ["contact", "goncalves.fi"].join("@"),
   resumeUrl: "#",
-  bio: "Passionate about Linux systems and open source technology. Currently preparing for AWS Solutions Architect Associate (AWS SAA) and diving deep into cloud architecture, automation, and infrastructure management. I love exploring new distributions, optimizing workflows with Bash scripts, and contributing to the open source community.",
+  bio: "I work in technical support and study IT. Most of my projects are practical tools I build while learning Linux, cloud fundamentals, and automation. Currently preparing for AWS Solutions Architect Associate (AWS SAA).",
   socials: [
     { platform: "Codeberg", url: "https://codeberg.org/bgonc", iconClass: "", iconSvgPath: "M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648z" },
     { platform: "LinkedIn", url: "https://linkedin.com/in/brunogoncalvesss", iconClass: "fab fa-linkedin" },
@@ -58,7 +58,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     {
       id: 1,
       title: "System Dashboard",
-      description: "A PyQt6 dashboard built for Wayland and Hyprland to monitor system health, service status, updates, and cloud sync in one always-visible window.",
+      description: "A personal desktop dashboard project for Wayland and Hyprland. It tracks system health, services, updates, and cloud sync in one window.",
       technologies: ["Python", "PyQt6", "Systemd", "psutil"],
       imageUrl: "/images/projects/home-lab.png",
       codebergUrl: "https://codeberg.org/bgonc/system-dashboard",
@@ -66,7 +66,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     {
       id: 2,
       title: "Provet Report Studio",
-      description: "A browser tool for transforming Provet exports into clean reports with filters, merges, and fast analysis without server-side processing.",
+      description: "A browser tool I built to process Provet exports with filters, merges, and reporting. Everything runs client-side.",
       technologies: ["JavaScript", "HTML", "CSS", "SheetJS"],
       imageUrl: "/images/projects/dotfiles.png",
       codebergUrl: "https://codeberg.org/bgonc/provet-report-studio",
@@ -75,7 +75,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     {
       id: 3,
       title: "Portfolio Website",
-      description: "My personal website with project highlights and blog posts, built with React and TypeScript and published as a static site.",
+      description: "My personal website for sharing projects and learning progress, built with React and TypeScript.",
       technologies: ["React", "TypeScript", "Vite", "Tailwind"],
       imageUrl: "/images/projects/rhcsa.png",
       codebergUrl: "https://codeberg.org/bgonc/portfolio",

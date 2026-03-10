@@ -1,9 +1,13 @@
 # bgonc.codeberg.page — Portfolio Website
 
-Personal site built with React, TypeScript, and Vite. Includes a home page, a blog section, and a project showcase.  
-Deployed via Codeberg Pages.
+Personal site built with React, TypeScript, and Vite. It includes a project section and blog posts that document what I am learning.  
+Main site: **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
-Live at 👉 **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
+---
+
+## About this repo
+
+I work in technical support and study IT. This repository is part of my learning path and public portfolio.
 
 ---
 
@@ -11,8 +15,8 @@ Live at 👉 **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
 - **Framework:** React + TypeScript
 - **Build tool:** Vite
-- **Routing:** React Router (HashRouter for Codeberg Pages compatibility)
-- **Deployment:** Codeberg Pages
+- **Routing:** React Router (HashRouter for static hosting compatibility)
+- **Hosting:** Codeberg Pages (with GitHub mirror)
 
 ---
 
