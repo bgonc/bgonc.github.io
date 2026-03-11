@@ -7,7 +7,7 @@ Main site: **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
 ## About this repo
 
-I work in technical support and study IT. This repository is part of my learning path and public portfolio.
+I work in technical support and keep developing my IT skills through formal study and hands-on projects. This repository is part of my learning path and public portfolio.
 
 ---
 

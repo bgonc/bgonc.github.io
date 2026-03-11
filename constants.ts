@@ -6,11 +6,11 @@ import { PortfolioData } from './types';
 
 export const PORTFOLIO_DATA_EN: PortfolioData = {
   name: "bruno_",
-  title: "IT Student | Technical Support Specialist",
+  title: "Technical Support Specialist | Systems, Security, Open Source",
   location: "Helsinki, Finland",
   email: ["contact", "goncalves.fi"].join("@"),
   resumeUrl: "#",
-  bio: "I work in technical support and study IT. Most of my projects are practical tools I build while learning Linux, cloud fundamentals, and automation. Currently preparing for AWS Solutions Architect Associate (AWS SAA).",
+  bio: "I work in technical support for a SaaS platform and enjoy understanding how systems work behind the scenes. Outside work, I experiment with Linux, automation, and privacy-focused tools. I am especially interested in infrastructure, security, and open-source technologies.",
   socials: [
     { platform: "Codeberg", url: "https://codeberg.org/bgonc", iconClass: "", iconSvgPath: "M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648z" },
     { platform: "LinkedIn", url: "https://linkedin.com/in/brunogoncalvesss", iconClass: "fab fa-linkedin" },

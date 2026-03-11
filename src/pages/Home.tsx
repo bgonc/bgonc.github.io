@@ -174,15 +174,13 @@ const Home: React.FC = () => {
                             <p className="text-lg text-text-muted leading-relaxed mb-6 whitespace-pre-wrap">
                                 {bio}
                             </p>
-                            <div className="mt-8 grid grid-cols-2 gap-4">
-                                <div className="p-4 bg-primary rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
-                                    <div className="text-3xl font-bold text-accent mb-1">5+</div>
-                                    <div className="text-sm text-text-muted">{labels.yearsExp}</div>
-                                </div>
-                                <div className="p-4 bg-primary rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
-                                    <div className="text-3xl font-bold text-purple-400 mb-1">{projects.length}+</div>
-                                    <div className="text-sm text-text-muted">{labels.projectsComp}</div>
-                                </div>
+                            <div className="mt-8 p-5 bg-primary rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm">
+                                <h3 className="text-lg font-semibold text-text-main mb-3">Currently exploring</h3>
+                                <ul className="list-disc pl-5 space-y-2 text-text-muted">
+                                    <li>Linux and system administration fundamentals</li>
+                                    <li>Privacy and open-source tools</li>
+                                    <li>Small automation scripts for everyday support work</li>
+                                </ul>
                             </div>
                         </div>
 
