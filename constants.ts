@@ -65,12 +65,12 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     },
     {
       id: 2,
-      title: "Provet Report Studio",
-      description: "A browser tool I built to process Provet exports with filters, merges, and reporting. Everything runs client-side.",
+      title: "Excel Utils",
+      description: "A browser tool I built to process spreadsheet exports with filters, merges, and reporting. Everything runs client-side.",
       technologies: ["JavaScript", "HTML", "CSS", "SheetJS"],
       imageUrl: "/images/projects/dotfiles.png",
-      codebergUrl: "https://codeberg.org/bgonc/provet-report-studio",
-      liveUrl: "https://bgonc.codeberg.page/provet-report-studio",
+      codebergUrl: "https://codeberg.org/bgonc/excel-utils",
+      liveUrl: "https://bgonc.codeberg.page/excel-utils",
     },
     {
       id: 3,
