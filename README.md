@@ -64,9 +64,11 @@ Behavior:
 
 ---
 
-## License
+## Usage and permission
 
-MIT — see [LICENSE](LICENSE) for details.
+This repository is not open source.
+No reuse, modification, redistribution, or commercial use is permitted without prior written permission.
+See [LICENSE](LICENSE) for details.
 
 ---
 
