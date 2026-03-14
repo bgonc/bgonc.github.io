@@ -1,13 +1,8 @@
-# bgonc.codeberg.page — Portfolio Website
+# bgonc.codeberg.page — Portfolio
 
-Personal site built with React, TypeScript, and Vite. It includes a project section and blog posts that document what I am learning.  
-Main site: **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
+Personal site built with React, TypeScript, and Vite. Has a project section and a small blog where I document things I'm learning.
 
----
-
-## About this repo
-
-I work in technical support and keep developing my IT skills through formal study and hands-on projects. This repository is part of my learning path and public portfolio.
+→ **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
 
 ---
 
@@ -15,61 +10,51 @@ I work in technical support and keep developing my IT skills through formal stud
 
 - **Framework:** React + TypeScript
 - **Build tool:** Vite
-- **Routing:** React Router (HashRouter for static hosting compatibility)
-- **Hosting:** Codeberg Pages (with GitHub mirror)
+- **Routing:** React Router (HashRouter — works well with static hosting)
+- **Hosting:** Codeberg Pages
 
 ---
 
-## Run Locally
+## Run locally
 
-**Prerequisites:** Node.js
+Prerequisites: Node.js
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the dev server:
-   ```bash
-   npm run dev
-   ```
-3. Build for production:
-   ```bash
-   npm run build
-   ```
+```bash
+npm install
+npm run dev
+```
+
+To build for production:
+```bash
+npm run build
+```
 
 ---
 
-## Auto Deploy To `pages`
+## Deploy to `pages`
 
-This repo includes a local automation flow that keeps `../pages` synced.
+The repo includes an automated flow to keep `../pages` in sync after every push.
 
 - Script: `scripts/deploy-pages.sh`
 - Hook: `.githooks/post-push`
 
-Enable hooks once in this clone:
-
+Enable it once in your local clone:
 ```bash
 git config core.hooksPath .githooks
 ```
 
-Manual deploy command:
-
+Or trigger it manually:
 ```bash
 npm run deploy:pages
 ```
 
-Behavior:
-- Every push to `main` in this local clone runs the deploy script automatically.
-- The script builds the site, syncs `dist/` into `../pages`, commits there if needed, and pushes `pages`.
+Every push to `main` builds the site, syncs `dist/` into `../pages`, and pushes it if there are changes.
 
 ---
 
-## Usage and permission
+## License
 
-This repository is source-available, but not open source.
-Personal viewing and reference are allowed.
-Reuse, modification, redistribution, derivative works, and commercial use are not permitted without prior written permission.
-See [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](LICENSE).
 
 ---
 
