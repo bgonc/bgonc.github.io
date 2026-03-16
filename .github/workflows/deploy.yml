@@ -13,24 +13,36 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build 
+      - name: Build redirect site
+        run: |
+          mkdir -p _site
+          cat > _site/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta http-equiv="refresh" content="0; url=https://bgonc.codeberg.page/">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>Moved to Codeberg</title>
+              <link rel="canonical" href="https://bgonc.codeberg.page/">
+              <script>
+                window.location.replace("https://bgonc.codeberg.page/" + window.location.hash);
+              </script>
+            </head>
+            <body>
+              <p>
+                This site moved to
+                <a href="https://bgonc.codeberg.page/">bgonc.codeberg.page</a>.
+              </p>
+            </body>
+          </html>
+          EOF
+          cp _site/index.html _site/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./_site
 
   deploy:
     environment:
