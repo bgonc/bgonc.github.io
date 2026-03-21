@@ -6,7 +6,7 @@ import { PortfolioData } from './types';
 
 export const PORTFOLIO_DATA_EN: PortfolioData = {
   name: "bruno_",
-  title: "Technical Support Specialist | Systems, Security, Open Source",
+  title: "Technical Support Specialist | Linux & Open Source Enthusiast",
   location: "Helsinki, Finland",
   email: ["contact", "goncalves.fi"].join("@"),
   resumeUrl: "#",
