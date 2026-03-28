@@ -8,6 +8,7 @@ const Home: React.FC = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [blogPosts, setBlogPosts] = useState<PostMetadata[]>([]);
+    const [showAllProjects, setShowAllProjects] = useState(false);
 
     const { data, theme, toggleTheme, labels } = usePortfolio();
     const { name, title, bio, experience, projects, skills, socials, email } = data;
@@ -252,7 +253,7 @@ const Home: React.FC = () => {
                         {labels.featuredProjects}
                     </h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project) => (
+                        {(showAllProjects ? projects : projects.slice(0, 3)).map((project) => (
                             <div key={project.id} className="group bg-primary rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-accent/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/10">
                                 <div className="h-48 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10"></div>
@@ -298,6 +299,20 @@ const Home: React.FC = () => {
                             </div>
                         ))}
                     </div>
+                    {projects.length > 3 && (
+                        <div className="text-center mt-10">
+                            <button
+                                onClick={() => setShowAllProjects(!showAllProjects)}
+                                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-text-muted hover:text-accent hover:border-accent/50 transition-all duration-300"
+                            >
+                                {showAllProjects ? (
+                                    <>Show Less <i className="fas fa-chevron-up text-xs"></i></>
+                                ) : (
+                                    <>Show More <i className="fas fa-chevron-down text-xs"></i></>
+                                )}
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
 
