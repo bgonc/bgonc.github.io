@@ -324,7 +324,7 @@ const Home: React.FC = () => {
                     </h2>
                     {blogPosts.length > 0 ? (
                         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                            {blogPosts.map((post) => (
+                            {blogPosts.slice(0, 2).map((post) => (
                                 <article
                                     key={post.slug}
                                     onClick={() => handlePostClick(post.slug)}
