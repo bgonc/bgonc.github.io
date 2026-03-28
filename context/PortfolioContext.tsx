@@ -62,7 +62,11 @@ const PortfolioContext = createContext<PortfolioContextType | undefined>(undefin
 
 export const PortfolioProvider = ({ children }: { children: React.ReactNode }) => {
   // UI State
-  const [theme, setThemeState] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>(() => {
+    const saved = localStorage.getItem('theme') as Theme | null;
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
 
   // Data State
   const [data, setData] = useState<PortfolioData>(PORTFOLIO_DATA_EN);
@@ -71,13 +75,7 @@ export const PortfolioProvider = ({ children }: { children: React.ReactNode }) =
   // Initialize Theme from storage
   useEffect(() => {
     // Theme Logic
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    if (savedTheme) {
-      setThemeState(savedTheme);
-      applyTheme(savedTheme);
-    } else {
-      applyTheme('dark'); // Default
-    }
+    applyTheme(theme);
 
     setIsLoaded(true);
   }, []);

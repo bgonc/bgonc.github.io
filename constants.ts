@@ -74,6 +74,14 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     },
     {
       id: 3,
+      title: "Polar AI Coach",
+      description: "AI-powered training coach that connects to Polar watch data. Features readiness scoring, sleep and stress analysis, interactive HR charts, adaptive training plans, and daily AI coaching with weather awareness.",
+      technologies: ["Python", "Flask", "OpenRouter AI", "Polar API", "Canvas"],
+      imageUrl: "/images/projects/polar-coach.png",
+      codebergUrl: "https://codeberg.org/bgonc/polar-coach",
+    },
+    {
+      id: 4,
       title: "Portfolio Website",
       description: "My personal website for sharing projects and learning progress, built with React and TypeScript.",
       technologies: ["React", "TypeScript", "Vite", "Tailwind"],
