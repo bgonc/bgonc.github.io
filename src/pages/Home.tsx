@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePortfolio } from '../../context/PortfolioContext';
 import { getAllPosts, PostMetadata } from '../utils/markdown';
 import WeatherWidget from '../components/WeatherWidget';
+import ActivityHeatmap from '../components/ActivityHeatmap';
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -202,6 +203,13 @@ const Home: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Activity Heatmap */}
+            <section className="py-12 bg-secondary/50 transition-colors duration-300 border-t border-slate-200 dark:border-slate-800">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <ActivityHeatmap />
                 </div>
             </section>
 
