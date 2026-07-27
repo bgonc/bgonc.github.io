@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Excel Utils</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script defer type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="kicker">Excel Utils</p>
+        <section class="hero-controls">
+          <div class="lang-inline" id="languageToggle" role="group" aria-label="Language">
+            <button id="langEnBtn" class="lang-btn" type="button" data-locale="en">EN</button>
+            <button id="langEsBtn" class="lang-btn" type="button" data-locale="es">ES</button>
+          </div>
+          <button id="themeIconBtn" class="theme-icon-btn" type="button" aria-label="Toggle night mode" title="Toggle night mode">
+            <span class="icon icon-moon" aria-hidden="true">☾</span>
+            <span class="icon icon-sun" aria-hidden="true">☼</span>
+          </button>
+        </section>
+        <p id="heroCopy" class="hero-copy">
+          Upload your files, choose the needed data, and download the final Excel file.
+        </p>
+      </header>
+
+      <section class="card preset-card">
+        <h2 id="quickPluginsTitle">Report Templates</h2>
+        <p id="quickPluginsHint" class="hint">Pick a report type, upload files, and generate.</p>
+        <div class="plugin-grid">
+          <button id="pluginCustomBtn" class="btn plugin-btn" type="button" data-plugin="custom">Custom Builder</button>
+          <button id="pluginRabiesBtn" class="btn plugin-btn" type="button" data-plugin="rabies">Rabies Report</button>
+          <button id="pluginModel347Btn" class="btn plugin-btn" type="button" data-plugin="model347">Modelo 347</button>
+        </div>
+        <label class="field checkbox plugin-advanced-toggle">
+          <input id="showAdvancedToggle" type="checkbox">
+          <span id="showAdvancedLabel">Show advanced options</span>
+        </label>
+        <section id="simplePluginPanel" class="subsection" hidden>
+          <div id="rabiesSimplePanel" class="simple-panel" hidden>
+            <h3 id="rabiesEssentialsTitle">Rabies Essentials</h3>
+            <div class="grid">
+              <label class="field">
+                <span id="rabiesOutputLabel">Output filename</span>
+                <input id="rabiesSimpleOutput" type="text" placeholder="Rabies_Vaccination_Report_YYYY-MM.xlsx">
+              </label>
+              <label class="field checkbox">
+                <input id="rabiesIncludeUnmatched" type="checkbox">
+                <span id="rabiesIncludeLabel">Include rows without client match</span>
+              </label>
+            </div>
+            <p id="rabiesFileStatus" class="hint"></p>
+            <p id="rabiesPanelHint" class="hint">Upload both files in Data Source. The app merges and exports with the rabies preset.</p>
+          </div>
+
+          <div id="model347SimplePanel" class="simple-panel" hidden>
+            <h3 id="model347EssentialsTitle">Modelo 347 Essentials</h3>
+            <div class="grid">
+              <label class="field">
+                <span id="model347OutputLabel">Output filename</span>
+                <input id="model347SimpleOutput" type="text" placeholder="Modelo_347_YYYY.xlsx">
+              </label>
+              <label class="field">
+                <span id="model347ThresholdLabel">Minimum annual total (€)</span>
+                <input id="model347Threshold" type="number" step="0.01" placeholder="3005.06">
+              </label>
+            </div>
+            <p id="model347FileStatus" class="hint"></p>
+            <p id="model347PanelHint" class="hint">Upload the invoice CSV in Data Source and generate the Modelo 347 table.</p>
+          </div>
+        </section>
+        <p id="pluginHint" class="hint">Custom Builder is active.</p>
+      </section>
+
+      <section id="dataSourceCard" class="card">
+        <h2 id="dataSourceTitle">1) Data Source</h2>
+        <label id="dropZone" class="drop-zone" tabindex="0">
+          <input id="fileInput" type="file" accept=".xlsx,.xls,.xlsm,.csv" multiple>
+          <strong id="dropZoneTitle">Drop files here or click to upload</strong>
+          <small id="dropZoneHint">Supports multiple Excel/CSV files. Upload again to add more files.</small>
+        </label>
+        <section id="dataActions" class="actions compact">
+          <button id="clearFilesBtn" class="btn" type="button">Clear Loaded Data</button>
+        </section>
+        <div id="combineModeWrap" class="grid">
+          <label id="combineModeField" class="field">
+            <span id="combineModeLabel">How should files be combined?</span>
+            <select id="combineMode">
+              <option value="append">Keep all rows from each file (no matching)</option>
+              <option value="join">Match rows from 2 files using one common column</option>
+              <option value="smart">Auto-detect common columns and merge files (2+ files)</option>
+            </select>
+          </label>
+        </div>
+        <p id="combineModeHelp" class="hint"></p>
+        <section id="smartSettings" class="subsection" hidden>
+          <h3 id="smartSettingsTitle">Auto-merge settings</h3>
+          <div class="grid">
+            <label class="field">
+              <span id="smartPrimaryLabel">Main file (base rows)</span>
+              <select id="smartPrimaryFile"></select>
+            </label>
+          </div>
+          <p id="smartSettingsHint" class="hint">The app automatically finds shared columns and merges data into the main file rows.</p>
+        </section>
+        <section id="joinSettings" class="subsection" hidden>
+          <h3 id="joinSettingsTitle">Match settings (2 files)</h3>
+          <div class="grid">
+            <label class="field">
+              <span id="joinLeftFileLabel">Main file</span>
+              <select id="joinLeftFile"></select>
+            </label>
+            <label class="field">
+              <span id="joinRightFileLabel">Lookup file</span>
+              <select id="joinRightFile"></select>
+            </label>
+            <label class="field">
+              <span id="joinLeftKeyLabel">Match column in main file</span>
+              <select id="joinLeftKey"></select>
+            </label>
+            <label class="field">
+              <span id="joinRightKeyLabel">Match column in lookup file</span>
+              <select id="joinRightKey"></select>
+            </label>
+            <label class="field">
+              <span id="joinTypeLabel">Keep rows from</span>
+              <select id="joinType">
+                <option value="left">Main file (keep all rows)</option>
+                <option value="inner">Matches only (both files)</option>
+              </select>
+            </label>
+          </div>
+          <p id="joinSettingsHint" class="hint">Rows are matched when both selected columns have the same value.</p>
+        </section>
+        <p id="dataSummary" class="hint">No files loaded yet.</p>
+        <div id="loadedFilesWrap" class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Rows</th>
+                <th>Size</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="loadedFilesBody"></tbody>
+          </table>
+        </div>
+        <section id="simpleLoadedFilesBox" class="simple-panel" hidden>
+          <h3 id="loadedFilesSimpleTitle">Loaded Files</h3>
+          <ul id="simpleLoadedFilesList" class="simple-files-list"></ul>
+        </section>
+      </section>
+
+      <section id="buildCard" class="card">
+        <h2>2) Build Output</h2>
+        <div class="grid">
+          <label id="reportModeField" class="field">
+            <span>Report Type</span>
+            <select id="reportMode">
+              <option value="detailed">Detailed rows</option>
+              <option value="summary">Summary (group + aggregate)</option>
+              <option value="quarter_pivot">Quarterly pivot (T1-T4 + total)</option>
+            </select>
+          </label>
+          <label id="outputNameField" class="field">
+            <span>Output filename</span>
+            <input id="outputName" type="text" placeholder="clinic_report.xlsx">
+          </label>
+          <label id="sheetNameField" class="field">
+            <span>Sheet name</span>
+            <input id="sheetName" type="text" placeholder="Report">
+          </label>
+        </div>
+
+        <section id="configActions" class="actions compact">
+          <button id="exportConfigBtn" class="btn" type="button">Export Config</button>
+          <button id="importConfigBtn" class="btn" type="button">Import Config</button>
+          <input id="importConfigInput" type="file" accept=".json,application/json" hidden>
+        </section>
+
+        <section id="detailedSection" class="subsection">
+          <h3>Columns In Final Output</h3>
+          <div class="inline-row">
+            <select id="availableColumns"></select>
+            <button id="addColumnBtn" class="btn" type="button">Add Column</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Source Column</th>
+                  <th>Output Header</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="selectedColumnsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="summarySection" class="subsection" hidden>
+          <h3>Summary Settings</h3>
+          <div class="grid">
+            <label class="field">
+              <span>Group by column</span>
+              <select id="summaryGroupBy"></select>
+            </label>
+            <label class="field">
+              <span>Aggregation</span>
+              <select id="summaryAggFn">
+                <option value="count">Count rows</option>
+                <option value="sum">Sum</option>
+                <option value="avg">Average</option>
+                <option value="min">Minimum</option>
+                <option value="max">Maximum</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Value column (for sum/avg/min/max)</span>
+              <select id="summaryAggColumn"></select>
+            </label>
+            <label class="field">
+              <span>Group label</span>
+              <input id="summaryGroupLabel" type="text" placeholder="Group">
+            </label>
+            <label class="field">
+              <span>Metric label</span>
+              <input id="summaryMetricLabel" type="text" placeholder="Count">
+            </label>
+          </div>
+        </section>
+
+        <section id="quarterSection" class="subsection" hidden>
+          <h3>Quarterly Pivot Settings</h3>
+          <div class="grid">
+            <label class="field">
+              <span>Primary group column</span>
+              <select id="qGroupBy1"></select>
+            </label>
+            <label class="field" data-q-advanced="1">
+              <span>Secondary group column</span>
+              <select id="qGroupBy2"></select>
+            </label>
+            <label class="field" data-q-advanced="1">
+              <span>Date column</span>
+              <select id="qDateColumn"></select>
+            </label>
+            <label class="field" data-q-advanced="1">
+              <span>Amount column</span>
+              <select id="qValueColumn"></select>
+            </label>
+            <label class="field">
+              <span>Replace empty primary group with</span>
+              <input id="qMissingGroup1" type="text" placeholder="FALTA NIF/DNI">
+            </label>
+            <label class="field">
+              <span>Minimum annual total (strictly greater than)</span>
+              <input id="qMinTotal" type="number" step="0.01" placeholder="3005.06">
+            </label>
+            <label class="field" data-q-advanced="1">
+              <span>Primary group label</span>
+              <input id="qGroup1Label" type="text" placeholder="Número de ID del Cliente">
+            </label>
+            <label class="field" data-q-advanced="1">
+              <span>Secondary group label</span>
+              <input id="qGroup2Label" type="text" placeholder="Cliente">
+            </label>
+            <label class="field" data-q-advanced="1">
+              <span>Total column label</span>
+              <input id="qTotalLabel" type="text" placeholder="Total Anual">
+            </label>
+          </div>
+          <p class="hint">Outputs one row per group with columns T1, T2, T3, T4 and annual total.</p>
+        </section>
+      </section>
+
+      <section id="filtersCard" class="card">
+        <h2>3) Filters</h2>
+        <div class="grid">
+          <label class="field checkbox">
+            <input id="enableDateFilter" type="checkbox">
+            <span>Enable date range filter</span>
+          </label>
+          <label class="field">
+            <span>Date column</span>
+            <select id="dateColumn"></select>
+          </label>
+          <label class="field">
+            <span>From date</span>
+            <input id="dateFrom" type="date">
+          </label>
+          <label class="field">
+            <span>To date</span>
+            <input id="dateTo" type="date">
+          </label>
+        </div>
+
+        <h3>Custom field filters</h3>
+        <div id="filtersList" class="filters-list"></div>
+        <section class="actions compact">
+          <button id="addFilterBtn" class="btn" type="button">Add Filter</button>
+        </section>
+      </section>
+
+      <section id="sortCard" class="card">
+        <h2>4) Sort</h2>
+        <div class="grid">
+          <label class="field">
+            <span>Sort by</span>
+            <select id="sortColumn"></select>
+          </label>
+          <label class="field">
+            <span>Direction</span>
+            <select id="sortDirection">
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="generateBtn" class="btn btn-primary" type="button">Generate Preview</button>
+        <button id="downloadBtn" class="btn" type="button" disabled>Download XLSX</button>
+      </section>
+
+      <section id="status" class="status neutral" aria-live="polite">Upload files to start.</section>
+
+      <section id="previewCard" class="card" hidden>
+        <h2>Preview</h2>
+        <p id="previewMeta" class="hint"></p>
+        <div class="table-wrap">
+          <table>
+            <thead id="previewHead"></thead>
+            <tbody id="previewBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
