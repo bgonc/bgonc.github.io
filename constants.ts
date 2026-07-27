@@ -75,7 +75,7 @@ export const PORTFOLIO_DATA_EN: PortfolioData = {
     {
       id: 3,
       title: "Polar AI Coach",
-      description: "Paused personal experiment connecting Polar watch data to readiness scoring, sleep and stress analysis, interactive charts, adaptive plans, and AI coaching.",
+      description: "AI-powered training coach that connects to Polar watch data. Features readiness scoring, sleep and stress analysis, interactive HR charts, adaptive training plans, and daily AI coaching with weather awareness.",
       technologies: ["Python", "Flask", "OpenRouter AI", "Polar API", "Canvas"],
       imageUrl: "/images/projects/polar-coach.png",
       repositoryUrl: "https://github.com/bgonc/polar-coach",
