@@ -46,5 +46,4 @@ It is lightweight, always visible, and focused on my own machine instead of tryi
 
 ## Source
 
-- [System Dashboard on Codeberg](https://codeberg.org/bgonc/system-dashboard)
-- [System Dashboard mirror on GitHub](https://github.com/bgonc/system-dashboard)
+- [System Dashboard on GitHub](https://github.com/bgonc/system-dashboard)

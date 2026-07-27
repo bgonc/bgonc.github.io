@@ -33,35 +33,11 @@ const ActivityHeatmap: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://codeberg.org/api/v1/users/bgonc/heatmap')
+    fetch('https://github-contributions-api.jogruber.de/v4/bgonc?y=last')
       .then(r => r.json())
-      .then((data: { timestamp: number; contributions: number }[]) => {
-        // Aggregate contributions by date
-        const byDate: Record<string, number> = {};
-        for (const entry of data) {
-          const d = new Date(entry.timestamp * 1000);
-          const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-          byDate[key] = (byDate[key] || 0) + entry.contributions;
-        }
-
-        // Build full year grid
-        const today = new Date();
-        const start = new Date(today);
-        start.setFullYear(start.getFullYear() - 1);
-        start.setDate(start.getDate() - start.getDay() + 1); // Start on Monday
-
-        const result: ContributionDay[] = [];
-        let sum = 0;
-        const cursor = new Date(start);
-        while (cursor <= today) {
-          const key = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, '0')}-${String(cursor.getDate()).padStart(2, '0')}`;
-          const count = byDate[key] || 0;
-          result.push({ date: key, count });
-          sum += count;
-          cursor.setDate(cursor.getDate() + 1);
-        }
-        setDays(result);
-        setTotal(sum);
+      .then((data: { total: Record<string, number>; contributions: ContributionDay[] }) => {
+        setDays(data.contributions);
+        setTotal(Object.values(data.total).reduce((sum, count) => sum + count, 0));
       })
       .catch(() => {});
   }, []);
@@ -112,7 +88,7 @@ const ActivityHeatmap: React.FC = () => {
     <div className="w-full">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-text-muted tracking-wide uppercase">
-          Codeberg Activity
+          GitHub Activity
         </h3>
         <span className="text-xs text-text-muted">
           {total} contributions in the last year

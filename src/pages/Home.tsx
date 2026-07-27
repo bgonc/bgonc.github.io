@@ -285,7 +285,7 @@ const Home: React.FC = () => {
                                     </div>
                                     <div className="flex gap-4">
                                         <a
-                                            href={project.codebergUrl}
+                                            href={project.repositoryUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 text-sm font-semibold text-text-main hover:text-accent transition-colors"

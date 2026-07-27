@@ -1,8 +1,8 @@
-# bgonc.codeberg.page — Portfolio
+# bgonc.github.io — Portfolio
 
 Personal site built with React, TypeScript, and Vite. Has a project section and a small blog where I document things I'm learning.
 
-→ **[bgonc.codeberg.page](https://bgonc.codeberg.page)**
+→ **[bgonc.github.io](https://bgonc.github.io)**
 
 ---
 
@@ -11,7 +11,7 @@ Personal site built with React, TypeScript, and Vite. Has a project section and 
 - **Framework:** React + TypeScript
 - **Build tool:** Vite
 - **Routing:** React Router (HashRouter — works well with static hosting)
-- **Hosting:** Codeberg Pages
+- **Hosting:** GitHub Pages
 
 ---
 
@@ -31,9 +31,9 @@ npm run build
 
 ---
 
-## Deploy to `pages`
+## Deploy to GitHub Pages
 
-The repo includes an automated flow to keep `../pages` in sync after every push.
+The repo includes an automated flow that builds the portfolio and syncs it to the `gh-pages` branch checked out at `../pages`. It also publishes Excel Utils under `/excel-utils`.
 
 - Script: `scripts/deploy-pages.sh`
 - Hook: `.githooks/post-push`
@@ -48,7 +48,7 @@ Or trigger it manually:
 npm run deploy:pages
 ```
 
-Every push to `main` builds the site, syncs `dist/` into `../pages`, and pushes it if there are changes.
+Every push to `main` builds the site and pushes changed deployment files to GitHub Pages.
 
 ---
 
@@ -60,4 +60,4 @@ MIT — see [LICENSE](LICENSE).
 
 ## Author
 
-[Bruno Goncalves](https://bgonc.codeberg.page) · [codeberg.org/bgonc](https://codeberg.org/bgonc)
+[Bruno Goncalves](https://bgonc.github.io) · [github.com/bgonc](https://github.com/bgonc)

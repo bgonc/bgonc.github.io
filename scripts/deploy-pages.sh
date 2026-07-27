@@ -3,6 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PAGES_REPO_PATH="${PAGES_REPO_PATH:-$ROOT_DIR/../pages}"
+EXCEL_UTILS_PATH="${EXCEL_UTILS_PATH:-$ROOT_DIR/../excel-utils}"
 
 if [[ ! -d "$PAGES_REPO_PATH/.git" ]]; then
   echo "Pages repo not found at: $PAGES_REPO_PATH" >&2
@@ -17,7 +18,12 @@ fi
 
 npm run build
 
-rsync -a --delete --exclude '.git' "$ROOT_DIR/dist/" "$PAGES_REPO_PATH/"
+rsync -a --delete --exclude '.git' --exclude 'excel-utils' "$ROOT_DIR/dist/" "$PAGES_REPO_PATH/"
+
+if [[ -d "$EXCEL_UTILS_PATH/.git" ]]; then
+  mkdir -p "$PAGES_REPO_PATH/excel-utils"
+  rsync -a --delete --exclude '.git' --exclude 'test-data' "$EXCEL_UTILS_PATH/" "$PAGES_REPO_PATH/excel-utils/"
+fi
 
 cd "$PAGES_REPO_PATH"
 if [[ -n "$(git status --porcelain)" ]]; then
