@@ -16,16 +16,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout Excel Utils
+        uses: actions/checkout@v4
+        with:
+          repository: bgonc/excel-utils
+          path: excel-utils
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
-        run: npm run build 
+        run: |
+          npm run build
+          touch dist/.nojekyll
+          mkdir -p dist/excel-utils
+          rsync -a --delete --exclude '.git' --exclude 'test-data' excel-utils/ dist/excel-utils/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -33,22 +33,13 @@ npm run build
 
 ## Deploy to GitHub Pages
 
-The repo includes an automated flow that builds the portfolio and syncs it to the `gh-pages` branch checked out at `../pages`. It also publishes Excel Utils under `/excel-utils`.
+GitHub Actions builds and deploys the portfolio after every push to `main`. The workflow also publishes [Excel Utils](https://github.com/bgonc/excel-utils) under `/excel-utils`.
 
-- Script: `scripts/deploy-pages.sh`
-- Hook: `.githooks/post-push`
+A manual deployment script is available as a fallback when the `gh-pages` worktree is checked out at `../pages`:
 
-Enable it once in your local clone:
-```bash
-git config core.hooksPath .githooks
-```
-
-Or trigger it manually:
 ```bash
 npm run deploy:pages
 ```
-
-Every push to `main` builds the site and pushes changed deployment files to GitHub Pages.
 
 ---
 
