@@ -19,6 +19,7 @@ fi
 npm run build
 
 rsync -a --delete --exclude '.git' --exclude 'excel-utils' "$ROOT_DIR/dist/" "$PAGES_REPO_PATH/"
+touch "$PAGES_REPO_PATH/.nojekyll"
 
 if [[ -d "$EXCEL_UTILS_PATH/.git" ]]; then
   mkdir -p "$PAGES_REPO_PATH/excel-utils"
